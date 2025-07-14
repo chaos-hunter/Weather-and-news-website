@@ -6,6 +6,9 @@ from datetime import datetime
 EVENTREG_API_KEY = os.getenv("EVENTREG_API_KEY")
 EVENTS_URL       = "https://eventregistry.org/api/v1/event/getEvents"
 
+if not EVENTREG_API_KEY:
+    raise RuntimeError("Missing EVENTREG_API_KEY environment variable")
+
 def get_events_text(keyword, page=1, count=10):
     today_str = datetime.now().strftime("%A, %B %d, %Y")
     payload = {
