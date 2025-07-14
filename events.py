@@ -1,8 +1,9 @@
+import os
 import requests
 from datetime import datetime
 
 # hard-wired API key
-EVENTREG_API_KEY = "2b85455d-a4c3-4fed-ad73-bceb942ece22"
+EVENTREG_API_KEY = os.getenv("EVENTREG_API_KEY")
 EVENTS_URL       = "https://eventregistry.org/api/v1/event/getEvents"
 
 def get_events_text(keyword, page=1, count=10):
